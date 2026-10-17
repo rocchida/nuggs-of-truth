@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuggs of Truth</title>
+  <meta name="description" content="Count the shapes in your nugget box and learn what fate has fried up for you.">
+  <meta property="og:title" content="Nuggs of Truth">
+  <meta property="og:description" content="Count the shapes in your nugget box and learn what fate has fried up for you.">
+  <meta name="theme-color" content="#1e1230">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">The ancient art of nuggomancy</p>
+      <h1>Nuggs of Truth</h1>
+      <p class="lede">Open your box. Count your shapes. Learn what fate has fried up for you.</p>
+    </header>
+
+    <section class="board" aria-label="Count your nuggets">
+      <div class="grid" id="grid"></div>
+      <p class="total" id="total" aria-live="polite">0 nuggets in your box</p>
+      <div class="actions">
+        <button class="btn primary" id="reveal" disabled>Reveal my fortune</button>
+        <button class="btn ghost" id="reset">Start over</button>
+      </div>
+    </section>
+
+    <section class="fortune" id="fortune" hidden aria-live="polite">
+      <div class="slip">
+        <p class="slip-label" id="fortuneType"></p>
+        <p class="slip-text" id="fortuneText"></p>
+        <p class="lucky" id="lucky"></p>
+      </div>
+      <button class="btn ghost" id="share">Share my fortune</button>
+      <p class="toast" id="toast" role="status"></p>
+    </section>
+
+    <footer class="foot">
+      <p>For entertainment only. The nuggets do not actually know anything.</p>
+    </footer>
+  </main>
+
+  <template id="cardTpl">
+    <div class="card">
+      <div class="shape"></div>
+      <h2 class="name"></h2>
+      <div class="counter">
+        <button class="step minus" type="button">−</button>
+        <span class="count">0</span>
+        <button class="step plus" type="button">+</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="fortunes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
