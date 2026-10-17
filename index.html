@@ -4,53 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nuggs of Truth</title>
-  <meta name="description" content="Count the shapes in your nugget box and learn what fate has fried up for you.">
+  <meta name="description" content="Count the shapes in your nugget box and read your fortune in the stars.">
   <meta property="og:title" content="Nuggs of Truth">
-  <meta property="og:description" content="Count the shapes in your nugget box and learn what fate has fried up for you.">
-  <meta name="theme-color" content="#1e1230">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+  <meta property="og:description" content="Count the shapes in your nugget box and read your fortune in the stars.">
+  <meta name="theme-color" content="#070418">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="nebula" aria-hidden="true"></div>
+
+  <button class="icon-btn mute" id="mute" type="button" aria-label="Mute sounds" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l5 6M21 9l-5 6"/></svg>
+  </button>
 
   <main class="wrap">
-    <header class="hero">
-      <p class="eyebrow">The ancient art of nuggomancy</p>
-      <h1>Nuggs of Truth</h1>
-      <p class="lede">Open your box. Count your shapes. Learn what fate has fried up for you.</p>
-    </header>
+    <h1>Nuggs of Truth</h1>
 
-    <section class="board" aria-label="Count your nuggets">
-      <div class="grid" id="grid"></div>
-      <p class="total" id="total" aria-live="polite">0 nuggets in your box</p>
-      <div class="actions">
-        <button class="btn primary" id="reveal" disabled>Reveal my fortune</button>
-        <button class="btn ghost" id="reset">Start over</button>
-      </div>
-    </section>
+    <section class="grid" id="grid" aria-label="Count your nuggets"></section>
+
+    <div class="actions">
+      <button class="btn primary" id="reveal" type="button" disabled>Reveal</button>
+      <button class="icon-btn" id="reset" type="button" aria-label="Start over">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg>
+      </button>
+    </div>
 
     <section class="fortune" id="fortune" hidden aria-live="polite">
-      <div class="slip">
-        <p class="slip-label" id="fortuneType"></p>
-        <p class="slip-text" id="fortuneText"></p>
-        <p class="lucky" id="lucky"></p>
+      <div class="scroll">
+        <p class="fortune-text" id="fortuneText"></p>
       </div>
-      <button class="btn ghost" id="share">Share my fortune</button>
+      <button class="btn ghost" id="share" type="button">Share</button>
       <p class="toast" id="toast" role="status"></p>
     </section>
-
-    <footer class="foot">
-      <p>For entertainment only. The nuggets do not actually know anything.</p>
-    </footer>
   </main>
 
   <template id="cardTpl">
     <div class="card">
-      <div class="shape"></div>
+      <button class="shape" type="button"></button>
       <h2 class="name"></h2>
       <div class="counter">
         <button class="step minus" type="button">−</button>
