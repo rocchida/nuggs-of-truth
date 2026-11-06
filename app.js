@@ -374,19 +374,54 @@
   $("share").addEventListener("click", async () => {
     if (!current) return;
     track("share");
-    const message = `The nuggets have spoken: "${current}"\n${location.href}`;
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: "Nuggs of Truth", text: message });
+    const url = location.href.split("#")[0];
+    const text = `The nuggets have spoken: "${current}"`;
+    const message = `${text}\n${url}`;
+
+    // 1. Native share sheet (mostly phones). If it fails for any reason
+    //    other than the user closing it, fall through to copying.
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "Nuggs of Truth", text, url });
         return;
+      } catch (err) {
+        if (err && err.name === "AbortError") return;
       }
-      await navigator.clipboard.writeText(message);
-      toast("Copied");
-    } catch (err) {
-      if (err && err.name === "AbortError") return;
-      toast("Couldn't share");
     }
+
+    // 2. Async clipboard API, then the older execCommand copy, which still
+    //    works in in-app browsers, file:// pages and non-HTTPS contexts.
+    if (await copyText(message)) {
+      toast("Copied to clipboard");
+      return;
+    }
+
+    // 3. Last resort: let the person copy it by hand.
+    window.prompt("Copy your fortune:", message);
   });
+
+  async function copyText(str) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(str);
+        return true;
+      }
+    } catch (e) { /* fall through to legacy copy */ }
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = str;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, str.length);
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    } catch (e) {
+      return false;
+    }
+  }
 
   function toast(msg) {
     const t = $("toast");
