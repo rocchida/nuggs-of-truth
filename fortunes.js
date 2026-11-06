@@ -1,82 +1,100 @@
-// ─────────────────────────────────────────────────────────────
-//  NUGGS OF TRUTH — FORTUNE TEXT
-//  This is the only file you need to edit to change the fortunes.
-//
-//  Each section below is a "reading type". The site works out which
-//  type a box of nuggets is, then picks one fortune from that list.
-//  The same box always gets the same fortune.
-//
-//  You can add or remove as many fortunes from any list as you like.
-//  Keep each one inside "double quotes" and end it with a comma.
-// ─────────────────────────────────────────────────────────────
-
 window.FORTUNES = {
 
   // Every nugget is a BOOT
   allBoot: [
-    "You are about to walk somewhere important. Wear comfortable shoes.",
+    "Someone you love thinks you should take a hike.",
+    "Somewhere, a set of clothes you donated is having a great life..",
+    "You will walk into a room and forget why. The answer was nuggets.",
   ],
 
   // Every nugget is a BALL
   allBall: [
-    "Life is rolling in your favor; try not to get in its way.",
+    "You will catch something important tomorrow. Hopefully not a cold.",
+    "Stop keeping score. You're losing anyway.",
   ],
 
   // Every nugget is a BELL
   allBell: [
-    "Someone is about to call your name. Answer, even if it's a telemarketer.",
+    "You should call him.",
+    "You should call her.",
+    "Your mother is thinking about you right now. Text her before she calls.",
+    "You are going to want to answer the next unknown number.",
   ],
 
   // Every nugget is a BONE
   allBone: [
-    "Your bones are telling you to stretch. Listen to your bones.",
+    "You are going to need more calcium if you want to make it.",
+    "A dog you met once still remembers you fondly.",
   ],
 
   // All four shapes appear in exactly equal numbers
   perfectBalance: [
-    "The fryer gods smile upon you. Buy a lottery ticket, but only one.",
-    "You are the rare person who can have it all. Don't brag.",
+    "Your nuggets are perfectly aligned. Eat them all at once to keep the universe in balance.",
+    "You will live to be 87.",
+    "This box will never happen again. Take a picture.",
+    "Today you are exactly where you are supposed to be. Tomorrow, unclear.",
   ],
 
   // BOOT is the most common shape
   bootLeads: [
-    "Kick that old habit to the curb this week.",
-    "Adventure is calling, and it's slightly crispy around the edges.",
-    "Step boldly; the floor is more solid than you think.",
+    "The last pair of shoes you wore will be your lucky pair.",
+    "You will be asked to help someone move. Say you're busy.",
   ],
 
   // BALL is the most common shape
   ballLeads: [
-    "Keep things simple, round, and dipped in something sweet.",
-    "The ball is in your court. Literally. Go get it.",
-    "A full circle is closing. Something you started long ago will finish soon.",
+    "The winning lottery numbers in May of 2043 will be 2, 15, 29, 62, 66.",
+    "Something you lost under the couch wants to be found.",
   ],
 
   // BELL is the most common shape
   bellLeads: [
-    "Good news is on its way. Ding ding.",
-    "Ring in the change you have been putting off.",
-    "Someone is thinking about you right now. It might be about nuggets.",
+    "There is a dog in a shelter who needs your help.",
+    "An unexpected guest will visit this week. Have some meatballs prepared.",
   ],
 
   // BONE is the most common shape
   boneLeads: [
-    "Trust your gut. It has been right about sauce before.",
-    "A friend needs you. Bring snacks.",
-    "Your strength is quiet but sturdy. Today, lift something heavy.",
+    "Your grandpa really loved you.",
+    "A stray animal will choose you and improve your life.",
   ],
 
   // Two shapes tie for the most common
-  tieBootBall:  ["Kick it into play. Take the shot you have been saving."],
-  tieBootBell:  ["March toward the sound of opportunity."],
-  tieBootBone:  ["Your feet and your skeleton agree: go for a walk."],
-  tieBallBell:  ["Your joy will be loud. Let it."],
-  tieBallBone:  ["Play fetch with your dreams; they will come back."],
-  tieBellBone:  ["Wake up and dig in. The treasure is closer than you think."],
+  tieBootBall: [
+    "You will regret it if you don't dance right now.",
+  ],
+  tieBootBell: [
+    "She was flirting with you but it's too late now.",
+    "Your friend is expecting but doesn't know it yet",
+  ],
+  tieBootBone: [
+    "A great fortune awaits you in La Bajada, Mexico.",
+  ],
+  tieBallBell: [
+    "This next Christmas will be different than any you've had before.",
+    "You will win the next argument by staying quiet.",
+  ],
+  tieBallBone: [
+    "Your family will change forever next year.",
+    "Throw the stick one more time. It means more than you know.",
+  ],
+  tieBellBone: [
+    "True love is waiting for you at your local library.",
+  ],
 
   // Three shapes tie for the most common
-  threeWayNoBoot: ["Stay put. What you seek is coming to you."],
-  threeWayNoBall: ["Something is missing, but you will not miss it."],
-  threeWayNoBell: ["A quiet week ahead. Enjoy the silence."],
-  threeWayNoBone: ["Go easy on yourself; you don't need a backbone today."],
+  threeWayNoBoot: [
+    "Don't leave town for at least a week. Then it should be safe.",
+  ],
+  threeWayNoBall: [
+    "You have extended family in Morocco your grandparents kept from you.",
+  ],
+  threeWayNoBell: [
+    "You need to drink more water.",
+    "No news is good news. Enjoy the silence while it lasts.",
+  ],
+  threeWayNoBone: [
+    "You will find real treasure by the end of this month.",
+    "Be brave this week. Spineless is a bad look on you.",
+  ],
 };
