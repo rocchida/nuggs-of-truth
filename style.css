@@ -377,6 +377,16 @@ h1 {
 
 .toast.on { opacity: 1; }
 
+/* ── Footer ── */
+.disclaimer {
+  margin-top: 56px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  opacity: .8;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nebula, .shape .star { animation: none; }
   .fortune-text .w { animation-duration: .01s; }
