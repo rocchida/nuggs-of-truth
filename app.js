@@ -320,6 +320,16 @@
 
   let current = null;
 
+  // Count an event in GoatCounter (shows under "Events" on the dashboard).
+  // Does nothing if analytics is blocked or not loaded yet.
+  function track(name) {
+    try {
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: name, title: name, event: true });
+      }
+    } catch (e) { /* analytics must never break the page */ }
+  }
+
   $("reveal").addEventListener("click", () => {
     const pool = (window.FORTUNES && window.FORTUNES[readingKey()]) || [];
     const seed = hash(SHAPES.map(s => counts[s.id]).join("-"));
@@ -344,6 +354,7 @@
       sky.burst();
     }
     playReveal();
+    track(`reveal-${readingKey()}`);
     box.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
@@ -362,6 +373,7 @@
 
   $("share").addEventListener("click", async () => {
     if (!current) return;
+    track("share");
     const message = `The nuggets have spoken: "${current}"\n${location.href}`;
     try {
       if (navigator.share) {
